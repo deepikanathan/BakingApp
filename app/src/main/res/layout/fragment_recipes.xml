@@ -5,16 +5,16 @@
     android:layout_height="match_parent">
     <include layout="@layout/no_data_layout" />
 
-    <android.support.v4.widget.SwipeRefreshLayout
-        android:id="@+id/pull_to_refresh"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
+    <!--<android.support.v4.widget.SwipeRefreshLayout-->
+        <!--android:id="@+id/pull_to_refresh"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="match_parent">-->
 
         <android.support.v7.widget.RecyclerView
-            android:id="@+id/recipes_recycler_view"
+            android:id="@+id/recipes_list_recyclerview"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             tools:listitem="@layout/recipe_list" />
-    </android.support.v4.widget.SwipeRefreshLayout>
+    <!--</android.support.v4.widget.SwipeRefreshLayout>-->
 
 </RelativeLayout>

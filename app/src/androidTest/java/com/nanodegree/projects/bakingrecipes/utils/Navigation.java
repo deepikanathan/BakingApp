@@ -8,7 +8,7 @@ import static android.support.test.espresso.matcher.ViewMatchers.withId;
 
 public class Navigation {
     public static void getMeToRecipeInfo(int recipePosition) {
-        onView(withId(R.id.recipes_recycler_view))
+        onView(withId(R.id.recipes_list_recyclerview))
                 .perform(RecyclerViewActions.actionOnItemAtPosition(recipePosition, click()));
     }
 

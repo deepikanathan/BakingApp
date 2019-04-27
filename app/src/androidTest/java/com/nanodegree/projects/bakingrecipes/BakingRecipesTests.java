@@ -45,7 +45,7 @@ public class BakingRecipesTests extends BaseTest {
 
         Navigation.getMeToRecipeInfo(0);
 
-        onView(withId(R.id.ingredients_textview))
+        onView(withId(R.id.ingredients_items_textview))
                 .check(matches(isDisplayed()));
 
         onView(withId(R.id.recipe_steps))
