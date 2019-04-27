@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.RecyclerView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/recipe_steps"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_marginLeft="@dimen/extra_large_padding"
+    android:layout_marginRight="@dimen/extra_large_padding"
+    android:name="com.nanodegree.projects.bakingrecipes.ui.RecipeStepListFragment"
+    tools:context="com.nanodegree.projects.bakingrecipes.ui.activities.RecipeActivity"
+    tools:listitem="@layout/recipe_step_list_item" />
