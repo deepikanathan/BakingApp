@@ -57,8 +57,8 @@ public class RecipeIngredientsStepsAdapter extends RecyclerView.Adapter<Recycler
         //  set the Recipe Steps
         else if (holder instanceof StepViewHolder) {
             StepViewHolder viewHolder = (StepViewHolder) holder;
-            viewHolder.mTvStepOrder.setText(String.valueOf(pos) + ".");
-            viewHolder.mTvStepName.setText(recipe.getSteps().get(pos).getShortDescription());
+            viewHolder.recipeStepNumber.setText(String.valueOf(pos) + ".");
+            viewHolder.recipeStepTitle.setText(recipe.getSteps().get(pos).getShortDescription());
 
             holder.itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -99,10 +99,10 @@ public class RecipeIngredientsStepsAdapter extends RecyclerView.Adapter<Recycler
 
     public class StepViewHolder extends RecyclerView.ViewHolder {
         @BindView(R.id.step_order_text)
-        public TextView mTvStepOrder;
+        public TextView recipeStepNumber;
 
         @BindView(R.id.step_name_text)
-        public TextView mTvStepName;
+        public TextView recipeStepTitle;
 
         public StepViewHolder(View itemView) {
             super(itemView);
