@@ -13,13 +13,15 @@
         android:layout_height="wrap_content"
         android:layout_marginEnd="@dimen/medium_padding"
         android:layout_marginStart="@dimen/medium_padding"
+        app:cardBackgroundColor="@color/colorPrimary"
+        app:cardElevation="0dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
         <TextView
-            android:id="@+id/ingredients_textview"
+            android:id="@+id/ingredients_items_textview"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginBottom="@dimen/large_padding"
@@ -32,9 +34,13 @@
             android:textSize="@dimen/large_text"
             tools:text="Ingredients" />
     </android.support.v7.widget.CardView>
-
     <TextView
         android:id="@+id/ingredients_title_textview"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:text="@string/ingredients_list"
+        android:textColor="@color/colorText"
+        android:textSize="@dimen/extra_large_text"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="@dimen/extra_small_padding"
@@ -45,12 +51,5 @@
         android:paddingLeft="@dimen/extra_large_padding"
         android:paddingRight="@dimen/large_padding"
         android:paddingStart="@dimen/extra_large_padding"
-        android:paddingTop="@dimen/x_extra_large_padding"
-        android:text="@string/ingredients_list"
-        android:textColor="@color/colorText"
-        android:textSize="@dimen/extra_large_text"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:ignore="RtlHardcoded" />
-
+        android:paddingTop="@dimen/x_extra_large_padding" />
 </android.support.constraint.ConstraintLayout>
