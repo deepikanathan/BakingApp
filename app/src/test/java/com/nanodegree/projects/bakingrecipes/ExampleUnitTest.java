@@ -1,4 +1,4 @@
-package com.nanodegree.projects.bakingapp;
+package com.nanodegree.projects.bakingrecipes;
 
 import org.junit.Test;
 

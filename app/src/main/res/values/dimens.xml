@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <dimen name="extra_small_padding">1dp</dimen>
     <dimen name="small_padding">3dp</dimen>
     <dimen name="medium_padding">7dp</dimen>
     <dimen name="large_padding">11dp</dimen>
     <dimen name="extra_large_padding">15dp</dimen>
+    <dimen name="x_extra_large_padding">55dp</dimen>
 
     <dimen name="small_text">9sp</dimen>
     <dimen name="medium_text">12sp</dimen>

@@ -19,6 +19,7 @@
             android:layout_marginStart="@dimen/large_padding"
             android:textSize="@dimen/large_text"
             android:textAlignment="center"
+            android:textColor="@color/colorText"
             tools:text="Recipe Name Here"/>
 
     </LinearLayout>

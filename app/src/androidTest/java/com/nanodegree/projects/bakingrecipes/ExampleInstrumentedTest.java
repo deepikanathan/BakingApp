@@ -1,4 +1,4 @@
-package com.nanodegree.projects.bakingapp;
+package com.nanodegree.projects.bakingrecipes;
 
 import android.content.Context;
 import android.support.test.InstrumentationRegistry;
@@ -21,6 +21,6 @@ public class ExampleInstrumentedTest {
         // Context of the app under test.
         Context appContext = InstrumentationRegistry.getTargetContext();
 
-        assertEquals("com.nanodegree.projects.bakingapp", appContext.getPackageName());
+        assertEquals("com.nanodegree.projects.bakingrecipes", appContext.getPackageName());
     }
 }

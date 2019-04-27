@@ -11,6 +11,7 @@ import com.nanodegree.projects.bakingrecipes.ui.fragments.RecipesFragment;
  */
 public class MainActivity extends AppCompatActivity implements RecipesFragment.OnRecipeClickListener {
 
+    public static String RECIPE_PARCEL_KEY = "RECIPE_PARCL_KEY";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
