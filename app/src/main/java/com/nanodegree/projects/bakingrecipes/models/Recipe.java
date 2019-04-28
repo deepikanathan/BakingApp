@@ -79,19 +79,6 @@ public class Recipe implements Parcelable {
         in.readList(this.steps, Step.class.getClassLoader());
     }
 
-    //  generate instance of Parcelable class
-    public static final Creator<Recipe> CREATOR = new Creator<Recipe>() {
-        @Override
-        public Recipe createFromParcel(Parcel source) {
-            return new Recipe(source);
-        }
-
-        @Override
-        public Recipe[] newArray(int size) {
-            return new Recipe[size];
-        }
-    };
-
     public String getImage() {
         return image;
     }
@@ -115,6 +102,19 @@ public class Recipe implements Parcelable {
     public List<Step> getSteps() {
         return steps;
     }
+
+    //  generate instance of Parcelable class
+    public static final Creator<Recipe> CREATOR = new Creator<Recipe>() {
+        @Override
+        public Recipe createFromParcel(Parcel source) {
+            return new Recipe(source);
+        }
+
+        @Override
+        public Recipe[] newArray(int size) {
+            return new Recipe[size];
+        }
+    };
 
     //  Parse using Jackson
     //  Reference - https://www.concretepage.com/jackson-api/read-write-json-using-jackson-objectmapper-jsonparser-jsongenerator-example

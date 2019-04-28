@@ -17,16 +17,22 @@ public class Ingredients implements Parcelable {
     private String measure;
 
     //  Initialize Ingredients
-    public Ingredients() {
-        this.quantity = 0;
-        this.measure = "";
-        this.ingredient = "";
-    }
-
-    protected Ingredients(Parcel in) {
+    private Ingredients(Parcel in) {
         this.quantity = in.readInt();
         this.measure = in.readString();
         this.ingredient = in.readString();
+    }
+
+    public int getQuantity() {
+        return quantity;
+    }
+
+    public String getMeasure() {
+        return measure;
+    }
+
+    public String getIngredient() {
+        return ingredient;
     }
 
     // Parcelable
@@ -54,18 +60,6 @@ public class Ingredients implements Parcelable {
             return new Ingredients[size];
         }
     };
-
-    public int getQuantity() {
-        return quantity;
-    }
-
-    public String getMeasure() {
-        return measure;
-    }
-
-    public String getIngredient() {
-        return ingredient;
-    }
 
     @Override
     public String toString() {
