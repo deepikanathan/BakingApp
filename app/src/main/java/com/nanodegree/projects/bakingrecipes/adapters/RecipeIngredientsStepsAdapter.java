@@ -38,38 +38,51 @@ public class RecipeIngredientsStepsAdapter extends RecyclerView.Adapter<Recycler
         }
     }
 
+    private String formatIngredients(Ingredients ingredients){
+       return  String.format(Locale.getDefault(), "* %s - %d %s)", ingredients.getIngredient(), ingredients.getQuantity(), ingredients.getMeasure());
+    }
+
+
     @SuppressLint("RecyclerView")
     @Override
     public void onBindViewHolder(@NonNull RecyclerView.ViewHolder holder, final int pos) {
-        //
+        // set Ingredients list
         if (holder instanceof IngredientsViewHolder) {
-            IngredientsViewHolder viewHolder = (IngredientsViewHolder) holder;
-            StringBuilder ingValue = new StringBuilder();
-            for (int i = 0; i < recipe.getIngredients().size(); i++) {
-                Ingredients ingredients = recipe.getIngredients().get(i);
-                ingValue.append(String.format(Locale.getDefault(), "• %s (%d %s)", ingredients.getIngredient(), ingredients.getQuantity(), ingredients.getMeasure()));
-                if (i != recipe.getIngredients().size() - 1)
-                    ingValue.append("\n");
-            }
-            //  set the Ingredients Title
-            viewHolder.ingredientsTitle.setText(ingValue.toString());
+            setIngredientsList(holder);
         }
         //  set the Recipe Steps
         else if (holder instanceof StepViewHolder) {
-            StepViewHolder viewHolder = (StepViewHolder) holder;
-            viewHolder.recipeStepNumber.setText(String.valueOf(pos) + ".");
-            viewHolder.recipeStepTitle.setText(recipe.getSteps().get(pos).getShortDescription());
-
-            holder.itemView.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    if (onItemClickListener != null)
-                        onItemClickListener.onItemClick(pos - 1);
-                }
-            });
+            setSteps(holder, pos);
         }
     }
 
+    private void setIngredientsList(@NonNull RecyclerView.ViewHolder holder){
+        IngredientsViewHolder viewHolder = (IngredientsViewHolder) holder;
+        StringBuilder ingrdientsList = new StringBuilder();
+        for (int i = 0; i < recipe.getIngredients().size(); i++) {
+            Ingredients ingredients = recipe.getIngredients().get(i);
+            ingrdientsList.append(formatIngredients(ingredients));
+            //  add a new line unless its the last item in the list
+            if (i != recipe.getIngredients().size() - 1)
+                ingrdientsList.append("\n");
+        }
+        //  set the Ingredients Title
+        viewHolder.ingredientsTitle.setText(ingrdientsList.toString());
+    }
+
+    private void setSteps(@NonNull RecyclerView.ViewHolder holder, final int pos){
+        StepViewHolder viewHolder = (StepViewHolder) holder;
+        viewHolder.recipeStepNumber.setText(String.valueOf(pos) + ".");
+        viewHolder.recipeStepTitle.setText(recipe.getSteps().get(pos - 1).getShortDescription());
+
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (onItemClickListener != null)
+                    onItemClickListener.onItemClick(pos - 1);
+            }
+        });
+    }
 
     @Override
     public int getItemViewType(int position) {
@@ -97,6 +110,9 @@ public class RecipeIngredientsStepsAdapter extends RecyclerView.Adapter<Recycler
         }
     }
 
+    /**
+     * ViewHolder for Recipe Steps
+     */
     public class StepViewHolder extends RecyclerView.ViewHolder {
         @BindView(R.id.step_order_text)
         public TextView recipeStepNumber;
