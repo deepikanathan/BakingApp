@@ -8,6 +8,7 @@
     <string name="recipe_parcelable_key">RECIPE_PARCL_KEY</string>
     <string name="recipe_pref_key">widget_recipe_key</string>
     <string name="recipe_unavailable">Recipes data not available.</string>
+    <string name="recipe_url">https://d17h27t6h515a5.cloudfront.net/</string>
     <string name="servings">Servings: %d</string>
     <string name="step_number">Step %d</string>
     <string name="title_recipe_step_detail">RecipeStep Detail</string>
