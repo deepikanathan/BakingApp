@@ -33,8 +33,6 @@ public class RecipesIdlingResource implements IdlingResource {
 
     public void setIdleState(boolean idleState) {
         isIdleNow.set(idleState);
-        if (idleState && resourceCallback != null) {
-            resourceCallback.onTransitionToIdle();
-        }
+        if (idleState && resourceCallback != null) resourceCallback.onTransitionToIdle();
     }
 }

@@ -62,13 +62,6 @@ public final class RecipesSingleton implements Serializable {
 
 }
 
-interface BakingJsonResponse {
-
-    //  get Response from Recipe API using the Retrofit Call method
-    @GET("topher/2017/May/59121517_baking/baking.json")
-    Call<List<Recipe>> getRecipesResponse();
-}
-
 /* Response from "https://d17h27t6h515a5.cloudfront.net/topher/2017/May/59121517_baking/baking.json"
  * [
  *   {
