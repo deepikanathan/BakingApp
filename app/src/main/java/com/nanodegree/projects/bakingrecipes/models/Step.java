@@ -19,6 +19,14 @@ public class Step implements Parcelable {
     @JsonProperty("videoURL")
     private String videoURL;
 
+    public Step() {
+        this.videoURL = "";
+        this.description = "";
+        this.id = 0;
+        this.shortDescription = "";
+        this.thumbnailURL = "";
+    }
+
     //  Initialize Recipe Steps
     protected Step(Parcel in) {
         this.videoURL = in.readString();

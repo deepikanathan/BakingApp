@@ -16,6 +16,13 @@ public class Ingredients implements Parcelable {
     @JsonProperty("measure")
     private String measure;
 
+
+    public Ingredients() {
+        this.quantity = 0;
+        this.measure = "";
+        this.ingredient = "";
+    }
+
     //  Initialize Ingredients
     private Ingredients(Parcel in) {
         this.quantity = in.readInt();
