@@ -10,7 +10,7 @@ import android.widget.TextView;
 import com.nanodegree.projects.bakingrecipes.R;
 import com.nanodegree.projects.bakingrecipes.models.Ingredients;
 import com.nanodegree.projects.bakingrecipes.models.Recipe;
-import com.nanodegree.projects.bakingrecipes.ui.Listeners;
+import com.nanodegree.projects.bakingrecipes.listeners.ItemClickListener;
 import java.util.Locale;
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -18,9 +18,9 @@ import butterknife.ButterKnife;
 
 public class RecipeIngredientsStepsAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
     private Recipe recipe;
-    private Listeners.OnItemClickListener onItemClickListener;
+    private ItemClickListener.OnItemClickListener onItemClickListener;
 
-    public RecipeIngredientsStepsAdapter(Recipe recipe, Listeners.OnItemClickListener onItemClickListener) {
+    public RecipeIngredientsStepsAdapter(Recipe recipe, ItemClickListener.OnItemClickListener onItemClickListener) {
         this.recipe = recipe;
         this.onItemClickListener = onItemClickListener;
     }
@@ -39,7 +39,10 @@ public class RecipeIngredientsStepsAdapter extends RecyclerView.Adapter<Recycler
     }
 
     private String formatIngredients(Ingredients ingredients){
-       return  String.format(Locale.getDefault(), "* %s - %d %s)", ingredients.getIngredient(), ingredients.getQuantity(), ingredients.getMeasure());
+        if (ingredients.getQuantity() > 0)
+            return  String.format(Locale.getDefault(), "* %s (%d %s)", ingredients.getIngredient(), ingredients.getQuantity(), ingredients.getMeasure());
+        else
+            return  String.format(Locale.getDefault(), "* %s ", ingredients.getIngredient());
     }
 
 

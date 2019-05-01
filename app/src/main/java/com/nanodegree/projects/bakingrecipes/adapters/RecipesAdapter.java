@@ -10,15 +10,15 @@ import android.view.ViewGroup;
 import com.nanodegree.projects.bakingrecipes.R;
 import com.nanodegree.projects.bakingrecipes.viewholders.RecipeViewHolder;
 import com.nanodegree.projects.bakingrecipes.models.Recipe;
-import com.nanodegree.projects.bakingrecipes.ui.Listeners;
+import com.nanodegree.projects.bakingrecipes.listeners.ItemClickListener;
 import java.util.List;
 
 public class RecipesAdapter extends RecyclerView.Adapter<RecipeViewHolder> {
     private Context ctx;
     private List<Recipe> recipeList;
-    private Listeners.OnItemClickListener onItemClickListener;
+    private ItemClickListener.OnItemClickListener onItemClickListener;
 
-    public RecipesAdapter(Context context, List<Recipe> recipes, Listeners.OnItemClickListener onItemClickListener) {
+    public RecipesAdapter(Context context, List<Recipe> recipes, ItemClickListener.OnItemClickListener onItemClickListener) {
         this.ctx = context;
         this.recipeList = recipes;
         this.onItemClickListener = onItemClickListener;
