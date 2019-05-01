@@ -3,7 +3,7 @@
     tools:context="com.nanodegree.projects.bakingrecipes.ui.fragments.RecipesFragment"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
-    <include layout="@layout/no_data_layout" />
+    <include layout="@layout/recipe_not_available_layout" />
         <android.support.v7.widget.RecyclerView
             android:id="@+id/recipes_list_recyclerview"
             android:layout_width="match_parent"
