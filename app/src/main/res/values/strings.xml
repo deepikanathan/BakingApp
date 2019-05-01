@@ -1,16 +1,24 @@
 <resources>
     <string name="add_to_widget">Add to Widget</string>
-    <string name="added_to_widget_toast">Recipe %s added to widget</string>
     <string name="app_name">Miriam\'s Baking Recipes</string>
-    <string name="no_network_connection">Please check you network connection.</string>
     <string name="ingredients_list">Ingredients</string>
     <string name="recipe_image">Recipe image</string>
-    <string name="recipe_parcelable_key">RECIPE_PARCL_KEY</string>
-    <string name="recipe_pref_key">widget_recipe_key</string>
-    <string name="recipe_unavailable">Recipes data not available.</string>
     <string name="recipe_url">https://d17h27t6h515a5.cloudfront.net/</string>
     <string name="servings">Servings: %d</string>
     <string name="step_number">Step %d</string>
     <string name="title_recipe_step_detail">RecipeStep Detail</string>
+
+    // messages
+    <string name="added_to_widget_toast">Recipe %s added to widget</string>
+
+    //  error messages
     <string name="unable_to_load_data">Unable to get recipes. Please try later.</string>
+    <string name="recipe_unavailable">Something went wrong. Recipes data not available.</string>
+    <string name="no_network_connection">Please check you network connection.</string>
+
+    //  Preferences
+    <string name="recipe_parcelable_key">RECIPE_PARCL_KEY</string>
+    <string name="recipe_pref_key">WIDGET_RECIPE_KEY</string>
+    <string name="recipe_step_key">RECIPE_STEP_KEY</string>
+    <string name="recipe_step_number_key">RECIPE_STEP_NUMBER_KEY</string>
 </resources>
