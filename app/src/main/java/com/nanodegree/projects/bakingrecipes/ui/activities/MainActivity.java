@@ -3,15 +3,14 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import com.nanodegree.projects.bakingrecipes.R;
+import com.nanodegree.projects.bakingrecipes.listeners.OnRecipeClickListener;
 import com.nanodegree.projects.bakingrecipes.models.Recipe;
-import com.nanodegree.projects.bakingrecipes.ui.fragments.RecipesFragment;
 
 /**
  * Home screen for the Baking app. Shows list of recipes in cardView.
  */
-public class MainActivity extends AppCompatActivity implements RecipesFragment.OnRecipeClickListener {
+public class MainActivity extends AppCompatActivity implements OnRecipeClickListener {
 
-    public static String RECIPE_PARCEL_KEY = "RECIPE_PARCL_KEY";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
