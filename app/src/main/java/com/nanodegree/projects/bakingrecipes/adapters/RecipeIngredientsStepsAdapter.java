@@ -75,7 +75,7 @@ public class RecipeIngredientsStepsAdapter extends RecyclerView.Adapter<Recycler
 
     private void setSteps(@NonNull RecyclerView.ViewHolder holder, final int pos){
         StepViewHolder viewHolder = (StepViewHolder) holder;
-        viewHolder.recipeStepNumber.setText(String.valueOf(pos) + ".");
+       // viewHolder.recipeStepNumber.setText(String.valueOf(pos) + ".");
         viewHolder.recipeStepTitle.setText(recipe.getSteps().get(pos - 1).getShortDescription());
 
         holder.itemView.setOnClickListener(new View.OnClickListener() {
@@ -117,7 +117,7 @@ public class RecipeIngredientsStepsAdapter extends RecyclerView.Adapter<Recycler
      * ViewHolder for Recipe Steps
      */
     public class StepViewHolder extends RecyclerView.ViewHolder {
-        @BindView(R.id.step_order_text)
+        @BindView(R.id.step_number_text)
         public TextView recipeStepNumber;
 
         @BindView(R.id.step_name_text)

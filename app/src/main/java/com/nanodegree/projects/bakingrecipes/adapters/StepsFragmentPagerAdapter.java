@@ -41,7 +41,13 @@ public class StepsFragmentPagerAdapter extends FragmentPagerAdapter {
     @Nullable
     @Override
     public CharSequence getPageTitle(int position) {
-        return String.format(ctx.getString(R.string.step_number), position + 1);
+        if (position == 0)
+        {
+            return ("Intro");
+        }
+        else {
+            return String.format(ctx.getString(R.string.step_number), position);
+        }
     }
 
 
