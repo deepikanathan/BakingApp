@@ -20,7 +20,7 @@
             android:textSize="@dimen/large_text"
             android:textAlignment="center"
             android:textColor="@color/colorText"
-            tools:text="Recipe Name Here"/>
+            tools:text="Recipe Name"/>
 
     </LinearLayout>
 </android.support.v7.widget.CardView>
