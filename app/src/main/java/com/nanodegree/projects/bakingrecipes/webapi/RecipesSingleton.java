@@ -1,4 +1,4 @@
-package com.nanodegree.projects.bakingrecipes.api;
+package com.nanodegree.projects.bakingrecipes.webapi;
 
 import com.nanodegree.projects.bakingrecipes.models.Recipe;
 import java.io.Serializable;
@@ -8,7 +8,6 @@ import retrofit2.Callback;
 import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.jackson.JacksonConverterFactory;
-import retrofit2.http.GET;
 
 /**
  * Get Recipe Singleton instance.

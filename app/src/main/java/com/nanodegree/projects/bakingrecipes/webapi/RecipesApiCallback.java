@@ -1,4 +1,4 @@
-package com.nanodegree.projects.bakingrecipes.api;
+package com.nanodegree.projects.bakingrecipes.webapi;
 
 /**
  * Interface to handle Retrofit Callback methods

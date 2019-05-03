@@ -1,4 +1,4 @@
-package com.nanodegree.projects.bakingrecipes.IdlingRecource;
+package com.nanodegree.projects.bakingrecipes.iIdlingRecource;
 
 import android.support.annotation.Nullable;
 import android.support.test.espresso.IdlingResource;

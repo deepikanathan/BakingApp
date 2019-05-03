@@ -15,7 +15,9 @@ import java.util.Locale;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-
+/**
+ * Recipe Ingredients and Steps adapter
+ */
 public class RecipeIngredientsStepsAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
     private Recipe recipe;
     private ItemClickListener.OnItemClickListener onItemClickListener;
@@ -75,7 +77,6 @@ public class RecipeIngredientsStepsAdapter extends RecyclerView.Adapter<Recycler
 
     private void setSteps(@NonNull RecyclerView.ViewHolder holder, final int pos){
         StepViewHolder viewHolder = (StepViewHolder) holder;
-       // viewHolder.recipeStepNumber.setText(String.valueOf(pos) + ".");
         viewHolder.recipeStepTitle.setText(recipe.getSteps().get(pos - 1).getShortDescription());
 
         holder.itemView.setOnClickListener(new View.OnClickListener() {

@@ -8,11 +8,15 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import com.nanodegree.projects.bakingrecipes.R;
-import com.nanodegree.projects.bakingrecipes.viewholders.RecipeViewHolder;
 import com.nanodegree.projects.bakingrecipes.models.Recipe;
 import com.nanodegree.projects.bakingrecipes.listeners.ItemClickListener;
+import com.nanodegree.projects.bakingrecipes.ui.activities.RecipeViewHolder;
+
 import java.util.List;
 
+/**
+ * Recipe adapter
+ */
 public class RecipesAdapter extends RecyclerView.Adapter<RecipeViewHolder> {
     private Context ctx;
     private List<Recipe> recipeList;
@@ -37,18 +41,14 @@ public class RecipesAdapter extends RecyclerView.Adapter<RecipeViewHolder> {
 
         holder.recipeName.setText(recipeList.get(position).getName());
 
-        holder.itemView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (onItemClickListener != null)
-                    onItemClickListener.onItemClick(position);
-            }
+        holder.itemView.setOnClickListener(v -> {
+            if (onItemClickListener != null)
+                onItemClickListener.onItemClick(position);
         });
     }
 
     @Override
     public int getItemCount() {
-
         return recipeList.size();
     }
 }

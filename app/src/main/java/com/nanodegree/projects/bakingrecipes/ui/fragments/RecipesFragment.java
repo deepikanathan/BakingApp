@@ -18,23 +18,26 @@ import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.Toast;
 import com.nanodegree.projects.bakingrecipes.R;
-import com.nanodegree.projects.bakingrecipes.GlobalApplication;
-import com.nanodegree.projects.bakingrecipes.Prefs;
+import com.nanodegree.projects.bakingrecipes.utils.GlobalApplication;
+import com.nanodegree.projects.bakingrecipes.utils.Prefs;
 import com.nanodegree.projects.bakingrecipes.adapters.RecipesAdapter;
-import com.nanodegree.projects.bakingrecipes.api.RecipesApiCallback;
-import com.nanodegree.projects.bakingrecipes.api.RecipesSingleton;
+import com.nanodegree.projects.bakingrecipes.webapi.RecipesApiCallback;
+import com.nanodegree.projects.bakingrecipes.webapi.RecipesSingleton;
 import com.nanodegree.projects.bakingrecipes.listeners.OnRecipeClickListener;
 import com.nanodegree.projects.bakingrecipes.models.Recipe;
 import com.nanodegree.projects.bakingrecipes.listeners.ItemClickListener;
 import com.nanodegree.projects.bakingrecipes.utils.NetworkUtils;
 import com.nanodegree.projects.bakingrecipes.utils.RecyclerSpacingItemDecoration;
-import com.nanodegree.projects.bakingrecipes.widget.AppWidgetService;
+import com.nanodegree.projects.bakingrecipes.widget.RecipeWidgetService;
 import java.util.ArrayList;
 import java.util.List;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.Unbinder;
 
+/**
+ * REcipe Fragment that is shown in the Home Screen
+ */
 public class RecipesFragment extends Fragment {
 
     @BindView(R.id.recipes_list_recyclerview)
@@ -169,7 +172,7 @@ public class RecipesFragment extends Fragment {
                             }
                         }));
                         if (Prefs.GetRecipeFromPreference(getActivity().getApplicationContext()) == null) {
-                            AppWidgetService.updateWidget(getActivity(), recipeList.get(0));
+                            RecipeWidgetService.updateWidget(getActivity(), recipeList.get(0));
                         }
                     } else {
                         Toast.makeText(getActivity(), getString(R.string.unable_to_load_data), Toast.LENGTH_SHORT).show();
@@ -199,8 +202,4 @@ public class RecipesFragment extends Fragment {
         }
         globalApplication.setIdleState(true);
     }
-
-//    public interface OnRecipeClickListener {
-//        void onRecipeSelected(Recipe recipe);
-//    }
 }

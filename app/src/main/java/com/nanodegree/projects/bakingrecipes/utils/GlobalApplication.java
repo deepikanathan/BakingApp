@@ -1,11 +1,13 @@
-package com.nanodegree.projects.bakingrecipes;
+package com.nanodegree.projects.bakingrecipes.utils;
 
 import android.app.Application;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.annotation.VisibleForTesting;
 import android.support.test.espresso.IdlingResource;
-import com.nanodegree.projects.bakingrecipes.IdlingRecource.RecipesIdlingResource;
+
+import com.nanodegree.projects.bakingrecipes.BuildConfig;
+import com.nanodegree.projects.bakingrecipes.iIdlingRecource.RecipesIdlingResource;
 
 /**
  * Application to get App Context that is used in utility classes where context is not available.

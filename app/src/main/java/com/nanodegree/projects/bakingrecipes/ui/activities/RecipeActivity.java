@@ -15,10 +15,13 @@ import com.nanodegree.projects.bakingrecipes.adapters.RecipeIngredientsStepsAdap
 import com.nanodegree.projects.bakingrecipes.models.Recipe;
 import com.nanodegree.projects.bakingrecipes.ui.fragments.RecipeStepDetailFragment;
 import com.nanodegree.projects.bakingrecipes.utils.RecyclerSpacingItemDecoration;
-import com.nanodegree.projects.bakingrecipes.widget.AppWidgetService;
+import com.nanodegree.projects.bakingrecipes.widget.RecipeWidgetService;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
+/**
+ * Recipe Ingredients and Steps activity
+ */
 public class RecipeActivity extends AppCompatActivity {
 
     private boolean isTabletLayout;
@@ -26,13 +29,13 @@ public class RecipeActivity extends AppCompatActivity {
     @BindView(R.id.recipe_steps)
     RecyclerView recyclerView;
     @BindView(android.R.id.content)
-    View mParentLayout;
+    View view;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        //  get saved REcipe from Bundle
+        //  get saved Recipe from Bundle
         Bundle bundle = getIntent().getExtras();
         if (bundle != null && bundle.containsKey(getResources().getString(R.string.recipe_parcelable_key))) {
             recipe = bundle.getParcelable(getResources().getString(R.string.recipe_parcelable_key));
@@ -93,40 +96,12 @@ public class RecipeActivity extends AppCompatActivity {
 
         //  add recipe to widget
         if (item.getItemId() == R.id.action_add_to_widget) {
-            AppWidgetService.updateWidget(this, recipe);
+            RecipeWidgetService.updateWidget(this, recipe);
             Toast.makeText(this, String.format(getString(R.string.added_to_widget_toast), recipe.getName()), Toast.LENGTH_SHORT).show();
             return true;
         } else {
             return super.onOptionsItemSelected(item);
         }
-    }
-
-
-    private void showRecipeStepForTablet(int position)
-    {
-        Bundle arguments = new Bundle();
-        arguments.putParcelable(RecipeStepDetailFragment.STEP_KEY, recipe.getSteps().get(position));
-        RecipeStepDetailFragment fragment = new RecipeStepDetailFragment();
-        fragment.setArguments(arguments);
-        getSupportFragmentManager().beginTransaction()
-                .replace(R.id.recipe_step_detail_container, fragment)
-                .commit();
-    }
-
-    private void showRecipeStepForPhone(int position)
-    {
-        Intent intent = new Intent(this, RecipeStepDetailActivity.class);
-        intent.putExtra(RecipeStepDetailActivity.RECIPE_KEY, recipe);
-        intent.putExtra(RecipeStepDetailActivity.STEP_SELECTED_KEY, position);
-        startActivity(intent);
-    }
-
-    private void setRecyclerView()
-    {
-        recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        RecyclerSpacingItemDecoration recylerViewDecoration = new RecyclerSpacingItemDecoration((int) getResources().getDimension(R.dimen.medium_padding));
-        recyclerView.addItemDecoration(recylerViewDecoration);
-        recyclerView.setAdapter(new RecipeIngredientsStepsAdapter(recipe, position -> showRecipeStep(position)));
     }
 
     private void setActionBarTitle() {
@@ -137,4 +112,27 @@ public class RecipeActivity extends AppCompatActivity {
         }
     }
 
+    private void showRecipeStepForPhone(int position){
+        Intent intent = new Intent(this, RecipeStepDetailActivity.class);
+        intent.putExtra(getString(R.string.recipe_step_key), recipe);
+        intent.putExtra(getString(R.string.recipe_step_number_key), position);
+        startActivity(intent);
+    }
+
+    private void showRecipeStepForTablet(int position)
+    {
+        Bundle arguments = new Bundle();
+        arguments.putParcelable(getResources().getString(R.string.step), recipe.getSteps().get(position));
+        RecipeStepDetailFragment fragment = new RecipeStepDetailFragment();
+        fragment.setArguments(arguments);
+        getSupportFragmentManager().beginTransaction()
+                .replace(R.id.recipe_step_detail_container, fragment)
+                .commit();
+    }
+    private void setRecyclerView(){
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        RecyclerSpacingItemDecoration recylerViewDecoration = new RecyclerSpacingItemDecoration((int) getResources().getDimension(R.dimen.medium_padding));
+        recyclerView.addItemDecoration(recylerViewDecoration);
+        recyclerView.setAdapter(new RecipeIngredientsStepsAdapter(recipe, position -> showRecipeStep(position)));
+    }
 }

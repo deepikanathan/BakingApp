@@ -13,6 +13,9 @@ import com.nanodegree.projects.bakingrecipes.ui.fragments.RecipeStepDetailFragme
 
 import java.util.List;
 
+/**
+ * Recipe Steps adapter
+ */
 public class StepsFragmentPagerAdapter extends FragmentPagerAdapter {
     private Context ctx;
     private List<Step> recipeSteps;
@@ -32,7 +35,7 @@ public class StepsFragmentPagerAdapter extends FragmentPagerAdapter {
     public Fragment getItem(int position) {
         Bundle arguments = new Bundle();
         //  pass the Recipe Step Number and Step Description to the succeeding Step
-        arguments.putParcelable(RecipeStepDetailFragment.STEP_KEY, recipeSteps.get(position));
+        arguments.putParcelable(ctx.getResources().getString(R.string.step), recipeSteps.get(position));
         RecipeStepDetailFragment fragment = new RecipeStepDetailFragment();
         fragment.setArguments(arguments);
         return fragment;
