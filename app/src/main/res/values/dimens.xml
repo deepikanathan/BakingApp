@@ -11,4 +11,5 @@
     <dimen name="medium_text">12sp</dimen>
     <dimen name="large_text">15sp</dimen>
     <dimen name="extra_large_text">18sp</dimen>
+    <dimen name="x_extra_large_text">20sp</dimen>
 </resources>
