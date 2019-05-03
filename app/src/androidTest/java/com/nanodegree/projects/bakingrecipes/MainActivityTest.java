@@ -1,11 +1,11 @@
-package com.nanodegree.projects.bakingrecipes.utils;
+package com.nanodegree.projects.bakingrecipes;
 
 import android.support.test.espresso.IdlingRegistry;
 import android.support.test.espresso.IdlingResource;
 import android.support.test.espresso.contrib.RecyclerViewActions;
 import android.support.test.rule.ActivityTestRule;
-import com.nanodegree.projects.bakingrecipes.R;
-import com.nanodegree.projects.bakingrecipes.ui.activities.MainActivity;
+
+import com.nanodegree.projects.bakingrecipes.utils.GlobalApplication;
 
 import org.junit.After;
 import org.junit.Before;
