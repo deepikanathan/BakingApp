@@ -15,12 +15,12 @@ import static android.support.test.espresso.Espresso.onView;
 import static android.support.test.espresso.action.ViewActions.click;
 import static android.support.test.espresso.matcher.ViewMatchers.withId;
 
-public abstract class BaseTest {
+public abstract class MainActivityTest {
     protected GlobalApplication globalApplication;
-    protected IdlingResource mIdlingResource;
+    private IdlingResource mIdlingResource;
 
     @Rule
-    public ActivityTestRule<MainActivity> activityTestRule = new ActivityTestRule<>(MainActivity.class);
+    public ActivityTestRule<com.nanodegree.projects.bakingrecipes.ui.activities.MainActivity> activityTestRule = new ActivityTestRule<>(com.nanodegree.projects.bakingrecipes.ui.activities.MainActivity.class);
 
     @Before
     public void registerIdlingResource() {
