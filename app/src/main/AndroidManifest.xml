@@ -6,7 +6,7 @@
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.RECORD_AUDIO" />
     <application
-        android:name=".GlobalApplication"
+        android:name=".utils.GlobalApplication"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
@@ -33,7 +33,7 @@
                 android:value=".ui.activities.RecipeActivity" />
         </activity>
 
-        <receiver android:name=".widget.AppWidget">
+        <receiver android:name=".widget.RecipeWidgetProvider">
             <intent-filter>
                 <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
             </intent-filter>
@@ -44,7 +44,7 @@
         </receiver>
 
         <service
-            android:name=".widget.AppWidgetService"
+            android:name=".widget.RecipeWidgetService"
             android:permission="android.permission.BIND_REMOTEVIEWS" />
     </application>
 

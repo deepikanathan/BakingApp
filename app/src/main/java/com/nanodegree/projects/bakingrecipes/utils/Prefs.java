@@ -7,7 +7,7 @@ import com.nanodegree.projects.bakingrecipes.R;
 import com.nanodegree.projects.bakingrecipes.models.Recipe;
 
 public class Prefs {
-    private static final String PREFS_NAME = "prefs";
+    public static final String PREFS_NAME = "prefs";
 
     public static void AddRecipeToPreference(Context context, Recipe recipe) {
         SharedPreferences.Editor prefs = context.getSharedPreferences(PREFS_NAME, Context.MODE_PRIVATE).edit();
