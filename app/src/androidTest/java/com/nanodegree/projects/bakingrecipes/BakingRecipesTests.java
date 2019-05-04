@@ -3,9 +3,7 @@ package com.nanodegree.projects.bakingrecipes;
 import android.content.Context;
 import android.support.test.espresso.intent.Intents;
 import android.support.test.runner.AndroidJUnit4;
-import com.nanodegree.projects.bakingrecipes.models.Recipe;
 import com.nanodegree.projects.bakingrecipes.ui.activities.RecipeStepDetailActivity;
-import com.nanodegree.projects.bakingrecipes.utils.MainActivityTest;
 import com.nanodegree.projects.bakingrecipes.utils.Prefs;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -30,10 +28,8 @@ public class BakingRecipesTests extends MainActivityTest {
     public void clickRecyclerViewItemHasIntentWithAKey() {
         //Checks if the key is present
         Intents.init();
-
         MainActivityTest.getMeToRecipeInfo(0);
         intended(hasExtraWithKey(RECIPE_PARCL_KEY));
-
         Intents.release();
 
     }
@@ -56,15 +52,12 @@ public class BakingRecipesTests extends MainActivityTest {
 
         boolean twoPaneMode = globalApplication.getResources().getBoolean(R.bool.isTabletLayout);
         if (!twoPaneMode) {
-            // Checks if the keys are present and the intent launched is RecipeStepDetailActivity
             Intents.init();
             MainActivityTest.selectRecipeStep(1);
             intended(hasComponent(RecipeStepDetailActivity.class.getName()));
             intended(hasExtraWithKey(RECIPE_STEP_KEY));
             intended(hasExtraWithKey(RECIPE_STEP_NUMBER_KEY));
             Intents.release();
-
-            // Check TabLayout
             onView(withId(R.id.recipe_steps_tab))
                     .check(matches(isCompletelyDisplayed()));
         } else {
@@ -77,7 +70,6 @@ public class BakingRecipesTests extends MainActivityTest {
 
     @Test
     public void checkAddWidgetButtonFunctionality() {
-        // Clear the preferences values
         globalApplication.getSharedPreferences(Prefs.PREFS_NAME, Context.MODE_PRIVATE).edit()
                 .clear()
                 .commit();
@@ -88,11 +80,7 @@ public class BakingRecipesTests extends MainActivityTest {
                 .check(matches(isDisplayed()))
                 .perform(click());
 
-        // Get the recipe base64 string from the sharedPrefs
-        Recipe recipe = Prefs.GetRecipeFromPreference(globalApplication);
-
-        // Assert recipe is not null
-        assertNotNull(recipe);
+        assertNotNull(Prefs.GetRecipeFromPreference(globalApplication));
     }
 
 }
