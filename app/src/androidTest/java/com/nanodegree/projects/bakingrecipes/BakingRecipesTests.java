@@ -28,7 +28,7 @@ public class BakingRecipesTests extends MainActivityTest {
     public void clickRecyclerViewItemHasIntentWithAKey() {
         //Checks if the key is present
         Intents.init();
-        MainActivityTest.getMeToRecipeInfo(0);
+        MainActivityTest.checkRecipeIsLoaded(0);
         intended(hasExtraWithKey(RECIPE_PARCL_KEY));
         Intents.release();
 
@@ -37,7 +37,7 @@ public class BakingRecipesTests extends MainActivityTest {
     @Test
     public void clickOnRecyclerViewItem_opensRecipeInfoActivity() {
 
-        MainActivityTest.getMeToRecipeInfo(0);
+        MainActivityTest.checkRecipeIsLoaded(0);
 
         onView(withId(R.id.ingredients_items_textview))
                 .check(matches(isDisplayed()));
@@ -48,12 +48,12 @@ public class BakingRecipesTests extends MainActivityTest {
 
     @Test
     public void clickOnRecyclerViewStepItem_opensRecipeStepActivity_orFragment() {
-        MainActivityTest.getMeToRecipeInfo(0);
+        MainActivityTest.checkRecipeIsLoaded(0);
 
         boolean twoPaneMode = globalApplication.getResources().getBoolean(R.bool.isTabletLayout);
         if (!twoPaneMode) {
             Intents.init();
-            MainActivityTest.selectRecipeStep(1);
+            MainActivityTest.selectRecipe(1);
             intended(hasComponent(RecipeStepDetailActivity.class.getName()));
             intended(hasExtraWithKey(RECIPE_STEP_KEY));
             intended(hasExtraWithKey(RECIPE_STEP_NUMBER_KEY));
@@ -61,7 +61,7 @@ public class BakingRecipesTests extends MainActivityTest {
             onView(withId(R.id.recipe_steps_tab))
                     .check(matches(isCompletelyDisplayed()));
         } else {
-            MainActivityTest.selectRecipeStep(1);
+            MainActivityTest.selectRecipe(1);
 
             onView(withId(R.id.exo_player))
                     .check(matches(isDisplayed()));
@@ -74,7 +74,7 @@ public class BakingRecipesTests extends MainActivityTest {
                 .clear()
                 .commit();
 
-        MainActivityTest.getMeToRecipeInfo(0);
+        MainActivityTest.checkRecipeIsLoaded(0);
 
         onView(withId(R.id.action_add_to_widget))
                 .check(matches(isDisplayed()))

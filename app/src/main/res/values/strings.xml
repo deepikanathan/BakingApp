@@ -13,7 +13,7 @@
 
     //  error messages
     <string name="unable_to_load_data">Unable to get recipes. Please try later.</string>
-    <string name="recipe_unavailable">Something went wrong. Recipe data not available.</string>
+    <string name="recipe_unavailable">Recipe data not available.Please wait or try again later.</string>
     <string name="no_network_connection">Please check you network connection.</string>
 
     //  Preferences

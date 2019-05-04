@@ -17,7 +17,7 @@ import static android.support.test.espresso.matcher.ViewMatchers.withId;
 
 public abstract class MainActivityTest {
     protected GlobalApplication globalApplication;
-    private IdlingResource mIdlingResource;
+    private IdlingResource idlingResource;
 
     @Rule
     public ActivityTestRule<com.nanodegree.projects.bakingrecipes.ui.activities.MainActivity> activityTestRule = new ActivityTestRule<>(com.nanodegree.projects.bakingrecipes.ui.activities.MainActivity.class);
@@ -25,24 +25,24 @@ public abstract class MainActivityTest {
     @Before
     public void registerIdlingResource() {
         globalApplication = (GlobalApplication) activityTestRule.getActivity().getApplicationContext();
-        mIdlingResource = globalApplication.getIdlingResource();
+        idlingResource = globalApplication.getIdlingResource();
         // Register Idling Resources
-        IdlingRegistry.getInstance().register(mIdlingResource);
+        IdlingRegistry.getInstance().register(idlingResource);
     }
 
     @After
     public void unregisterIdlingResource() {
-        if (mIdlingResource != null) {
-            IdlingRegistry.getInstance().unregister(mIdlingResource);
+        if (idlingResource != null) {
+            IdlingRegistry.getInstance().unregister(idlingResource);
         }
     }
 
-    public static void getMeToRecipeInfo(int recipePosition) {
+    public static void checkRecipeIsLoaded(int recipePosition) {
         onView(withId(R.id.recipes_list_recyclerview))
                 .perform(RecyclerViewActions.actionOnItemAtPosition(recipePosition, click()));
     }
 
-    public static void selectRecipeStep(int recipeStep) {
+    public static void selectRecipe(int recipeStep) {
         onView(withId(R.id.recipe_steps))
                 .perform(RecyclerViewActions.actionOnItemAtPosition(recipeStep, click()));
     }
